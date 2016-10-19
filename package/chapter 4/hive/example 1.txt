@@ -1,0 +1,31 @@
+
+CREATE TABLE rawdata (line STRING);
+
+
+LOAD DATA INPATH '/user/hadoop/edgar/' INTO TABLE rawdata ;
+
+
+CREATE TABLE wordcount AS
+  SELECT
+    word,
+    count(1) AS count
+  FROM
+    (SELECT
+       EXPLODE(SPLIT(line,' ')) AS word
+     FROM
+       rawdata
+    ) words
+  GROUP BY word
+  ORDER BY word ;
+
+
+SELECT
+   word,
+   count
+ FROM
+   wordcount
+ WHERE
+   count > 1500
+ ORDER BY
+   count ;
+

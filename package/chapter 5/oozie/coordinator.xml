@@ -1,0 +1,28 @@
+<coordinator-app 
+
+  name="FuelWorkFlowCoord" 
+  frequency="${JobFreq}" 
+  start="${jobStart}" 
+  end="${jobEnd}" 
+  timezone="${jobNZTimeZone}" 
+  xmlns="uri:oozie:coordinator:0.4">
+
+  <datasets>
+    <dataset 
+
+      name="vehicle" 
+      frequency="${DataJobFreq}" 
+      initial-instance="${jobStart}" 
+      timezone="${jobNZTimeZone}">
+
+      <uri-template>${hdfsRawData}/${YEAR}_${MONTH}_${DAY}_Fuel_Consumption</uri-template>
+    </dataset>
+  </datasets>
+
+  <action>
+    <workflow>
+      <app-path>${oozieWfPath}/workflow.xml</app-path>
+    </workflow>
+  </action>
+
+</coordinator-app>

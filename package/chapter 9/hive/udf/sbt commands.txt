@@ -1,0 +1,40 @@
+
+The commands used with sbt in the book were 
+
+compile
+package
+exit
+
+if you want to know the full range of commands available - just use help i.e. 
+
+
+[hadoop@hc1nn udf]$ sbt
+Loading /usr/share/sbt/bin/sbt-launch-lib.bash
+[info] Set current project to DateConv (in build file:/home/hadoop/hive/udf/)
+
+> help
+
+  help                                    Displays this help message or prints detailed help on requested commands (run 'help <command>').
+  about                                   Displays basic information about sbt and the build.
+  tasks                                   Lists the tasks defined for the current project.
+  settings                                Lists the settings defined for the current project.
+  reload                                  (Re)loads the project in the current directory
+  projects                                Lists the names of available projects or temporarily adds/removes extra builds to the session.
+  project                                 Displays the current project or changes to the provided `project`.
+  set [every] <setting>                   Evaluates a Setting and applies it to the current project.
+  session                                 Manipulates session settings.  For details, run 'help session'.
+  inspect [uses|tree|definitions] <key>   Prints the value for 'key', the defining scope, delegates, related definitions, and dependencies.
+  <log-level>                             Sets the logging level to 'log-level'.  Valid levels: debug, info, warn, error
+  ; <command> (; <command>)*              Runs the provided semicolon-separated commands.
+  ~ <command>                             Executes the specified command whenever source files change.
+  last                                    Displays output from a previous command or the output from a specific task.
+  last-grep                               Shows lines from the last output for 'key' that match 'pattern'.
+  export <tasks>+                         Executes tasks and displays the equivalent command lines.
+  exit                                    Terminates the build.
+  --<command>                             Schedules a command to run before other commands on startup.
+  show <key>                              Displays the result of evaluating the setting or task associated with 'key'.
+
+More command help available using 'help <command>' for:
+  !, +, ++, <, alias, append, apply, eval, iflast, onFailure, reboot, shell
+
+>

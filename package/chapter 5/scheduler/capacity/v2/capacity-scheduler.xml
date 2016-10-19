@@ -1,0 +1,261 @@
+<configuration>
+
+  <property>
+    <name>yarn.scheduler.capacity.maximum-applications</name>
+    <value>10000</value>
+    <description>
+      Maximum number of applications that can be pending and running.
+    </description>
+  </property>
+
+  <property>
+    <name>yarn.scheduler.capacity.maximum-am-resource-percent</name>
+    <value>0.1</value>
+    <description>
+      Maximum percent of resources in the cluster which can be used to run 
+      application masters i.e. controls number of concurrent running
+      applications.
+    </description>
+  </property>
+
+  <property>
+    <name>yarn.scheduler.capacity.resource-calculator</name>
+    <value>org.apache.hadoop.yarn.server.resourcemanager.resource.DefaultResourceCalculator</value>
+    <description>
+      The ResourceCalculator implementation to be used to compare 
+      Resources in the scheduler.
+      The default i.e. DefaultResourceCalculator only uses Memory while
+      DominantResourceCalculator uses dominant-resource to compare 
+      multi-dimensional resources such as Memory, CPU etc.
+    </description>
+  </property>
+
+  <!-- scheduler queue configuration -->
+
+  <property>
+    <name>yarn.scheduler.capacity.root.queues</name>
+    <value>client1,client2,client3</value>
+  </property>
+
+  <property>
+    <name>yarn.scheduler.capacity.root.client1.queues</name>
+    <value>client1a,client1b</value>
+  </property>
+
+  <property>
+    <name>yarn.scheduler.capacity.root.client2.queues</name>
+    <value>client2a,client2b</value>
+  </property>
+
+  <property>
+    <name>yarn.scheduler.capacity.root.client3.queues</name>
+    <value>client3a,client3b</value>
+  </property>
+
+  <!-- ***************************** -->
+  <!-- scheduler queue configuration -->
+  <!-- ***************************** -->
+
+  <!-- scheduler queue client1 configuration -->
+
+  <property>
+    <name>yarn.scheduler.capacity.root.client1.capacity</name> <value>33</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client1.user-limit-factor</name> <value>1</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client1.maximum-capacity</name> <value>100</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client1.state</name> <value>RUNNING</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client1.acl_submit_applications</name> <value>*</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client1.acl_administer_queue</name> <value>*</value>
+  </property>
+
+  <!-- scheduler queue client1.client1a configuration -->
+
+  <property>
+    <name>yarn.scheduler.capacity.root.client1.client1a.capacity</name> <value>50</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client1.client1a.user-limit-factor</name> <value>1</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client1.client1a.maximum-capacity</name> <value>50</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client1.client1a.state</name> <value>RUNNING</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client1.client1a.acl_submit_applications</name> <value>*</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client1.client1a.acl_administer_queue</name> <value>*</value>
+  </property>
+
+  <!-- scheduler queue client1.client1b configuration -->
+
+  <property>
+    <name>yarn.scheduler.capacity.root.client1.client1b.capacity</name> <value>50</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client1.client1b.user-limit-factor</name> <value>1</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client1.client1b.maximum-capacity</name> <value>50</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client1.client1b.state</name> <value>RUNNING</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client1.client1b.acl_submit_applications</name> <value>*</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client1.client1b.acl_administer_queue</name> <value>*</value>
+  </property>
+
+  <!-- scheduler queue client2 configuration -->
+
+  <property>
+    <name>yarn.scheduler.capacity.root.client2.capacity</name> <value>33</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client2.user-limit-factor</name> <value>1</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client2.maximum-capacity</name> <value>100</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client2.state</name> <value>RUNNING</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client2.acl_submit_applications</name> <value>*</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client2.acl_administer_queue</name> <value>*</value>
+  </property>
+
+  <!-- scheduler queue client2.client2a configuration -->
+
+  <property>
+    <name>yarn.scheduler.capacity.root.client2.client2a.capacity</name> <value>50</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client2.client2a.user-limit-factor</name> <value>1</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client2.client2a.maximum-capacity</name> <value>50</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client2.client2a.state</name> <value>RUNNING</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client2.client2a.acl_submit_applications</name> <value>*</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client2.client2a.acl_administer_queue</name> <value>*</value>
+  </property>
+
+  <!-- scheduler queue client2.client2b configuration -->
+
+  <property>
+    <name>yarn.scheduler.capacity.root.client2.client2b.capacity</name> <value>50</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client2.client2b.user-limit-factor</name> <value>1</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client2.client2b.maximum-capacity</name> <value>50</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client2.client2b.state</name> <value>RUNNING</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client2.client2b.acl_submit_applications</name> <value>*</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client2.client2b.acl_administer_queue</name> <value>*</value>
+  </property>
+
+  <!-- scheduler queue client3 configuration -->
+
+  <property>
+    <name>yarn.scheduler.capacity.root.client3.capacity</name> <value>34</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client3.user-limit-factor</name> <value>1</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client3.maximum-capacity</name> <value>100</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client3.state</name> <value>RUNNING</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client3.acl_submit_applications</name> <value>*</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client3.acl_administer_queue</name> <value>*</value>
+  </property>
+
+  <!-- scheduler queue client3.client3a configuration -->
+
+  <property>
+    <name>yarn.scheduler.capacity.root.client3.client3a.capacity</name> <value>50</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client3.client3a.user-limit-factor</name> <value>1</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client3.client3a.maximum-capacity</name> <value>50</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client3.client3a.state</name> <value>RUNNING</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client3.client3a.acl_submit_applications</name> <value>*</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client3.client3a.acl_administer_queue</name> <value>*</value>
+  </property>
+
+  <!-- scheduler queue client3.client3b configuration -->
+
+  <property>
+    <name>yarn.scheduler.capacity.root.client3.client3b.capacity</name> <value>50</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client3.client3b.user-limit-factor</name> <value>1</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client3.client3b.maximum-capacity</name> <value>50</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client3.client3b.state</name> <value>RUNNING</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client3.client3b.acl_submit_applications</name> <value>*</value>
+  </property>
+  <property>
+    <name>yarn.scheduler.capacity.root.client3.client3b.acl_administer_queue</name> <value>*</value>
+  </property>
+
+  <!-- scheduler queue configuration end -->
+
+  <property>
+    <name>yarn.scheduler.capacity.node-locality-delay</name>
+    <value>-1</value>
+    <description>
+      Number of missed scheduling opportunities after which the CapacityScheduler 
+      attempts to schedule rack-local containers. 
+      Typically this should be set to number of racks in the cluster, this 
+      feature is disabled by default, set to -1.
+    </description>
+  </property>
+
+</configuration>

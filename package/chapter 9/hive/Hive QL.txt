@@ -1,0 +1,192 @@
+
+--------------------------------------------------
+-- create database and use it
+--------------------------------------------------
+
+CREATE DATABASE  IF NOT EXISTS  trade;
+
+USE trade;
+
+--------------------------------------------------
+-- external tables
+--------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS
+trade.rawtrans
+(
+dept STRING,
+entity STRING,
+paydate STRING,
+exptype STRING,
+exparea STRING,
+supplier STRING,
+trans STRING,
+amount DOUBLE
+) 
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+LOCATION '/data/uk_trade';
+
+
+--------------------------------------------------
+-- registering and using udf's
+--------------------------------------------------
+
+add jar /home/hadoop/hive/udf/target/scala-2.10/dateconv_2.10-0.1.jar;
+
+create temporary function DateConv as 'nz.co.semtechsolutions.hive.udf.DateConv';
+
+--------------------------------------------------
+-- create table
+--------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS
+trade.suppliertot
+(
+payyear INT,
+paymonth INT,
+supplier STRING,
+totamount DOUBLE
+);
+
+CREATE TABLE IF NOT EXISTS
+trade.suppliertot
+AS
+SELECT 
+  year(DateConv (paydate) ) as payyear,
+  month(DateConv (paydate) ) as paymonth,
+  supplier,
+  SUM(amount) as totamount
+FROM 
+  trade.rawtrans
+GROUP BY
+  year(DateConv (paydate) ) ,
+  month(DateConv (paydate) ) ,
+  supplier ; 
+
+--------------------------------------------------
+-- remove table
+--------------------------------------------------
+
+DROP TABLE trade.suppliertot;
+
+--------------------------------------------------
+-- select statements 
+--------------------------------------------------
+
+SELECT COUNT(*) FROM trade.rawtrans
+
+SELECT 
+  year( DateConv (paydate) ) as payyear,
+  month(DateConv (paydate) ) as paymonth,
+  supplier,
+  SUM(amount) as totamount
+FROM 
+  trade.rawtrans
+GROUP BY
+  year( DateConv (paydate) ) ,
+  month(DateConv (paydate) ) ,
+  supplier ; 
+
+SELECT * FROM trade.suppliertot WHERE supplier LIKE 'UNIVERSITY%' ;
+
+--------------------------------------------------
+-- where clause
+--------------------------------------------------
+
+SELECT 
+  year( DateConv (paydate) ) as payyear,
+  month(DateConv (paydate) ) as paymonth,
+  supplier,
+  SUM(amount) as totamount
+FROM 
+  trade.rawtrans
+WHERE
+  supplier NOT LIKE 'UK Trade%'  AND
+  supplier NOT LIKE 'Corporate%'
+GROUP BY
+  year( DateConv (paydate) ) ,
+  month(DateConv (paydate) ) ,
+  supplier ; 
+
+
+--------------------------------------------------
+-- sub query
+--------------------------------------------------
+
+SELECT 
+  DateConv (b.paydate) as paydate,
+  b.supplier,
+  b.amount
+FROM 
+  (
+      SELECT  a.*  FROM  trade.rawtrans a WHERE a.supplier LIKE '%INDIA%'
+  ) b ;
+
+SELECT 
+  DateConv (b.paydate) as paydate,
+  b.supplier,
+  b.amount
+FROM 
+  FROM  trade.rawtrans b
+WHERE
+  b.supplier IN ( SELECT a.supplier FROM trade.uksupplier a )
+
+--------------------------------------------------
+-- table joins
+--------------------------------------------------
+
+SELECT 
+ a.dept,
+ a.supplier,
+ b.amount
+FROM 
+(
+     SELECT DISTINCT
+       c.dept,c.supplier
+     FROM 
+       trade.rawtrans c
+) a
+JOIN
+(
+     SELECT DISTINCT
+       d.supplier,d.amount 
+     FROM 
+       trade.rawtrans d
+) b
+ON ( a.supplier = b.supplier ) ;
+
+--------------------------------------------------
+-- inserts
+--------------------------------------------------
+
+INSERT INTO TABLE trade.suppliertot 
+  SELECT payyear,paymonth,'UNIVERSITY OF SEMTECH',700.0 FROM 
+    trade.suppliertot WHERE supplier LIKE 'UNIVERSITY%' ;
+
+INSERT OVERWRITE TABLE trade.suppliertot 
+  SELECT payyear,paymonth,'UNIVERSITY OF SEMTECH',950.0 FROM 
+    trade.suppliertot WHERE supplier LIKE 'UNIVERSITY%' ;
+
+--------------------------------------------------
+-- ordering
+--------------------------------------------------
+
+SELECT supplier, COUNT(*) FROM trade.rawtrans GROUP BY supplier ORDER BY supplier  DESC ;
+
+--------------------------------------------------
+-- having
+--------------------------------------------------
+
+SELECT 
+  supplier, COUNT(*) 
+FROM 
+  trade.rawtrans 
+GROUP BY 
+  supplier 
+HAVING COUNT(*) > 1000 
+ORDER BY 
+  supplier DESC ;
+
+
+
+

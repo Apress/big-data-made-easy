@@ -1,0 +1,670 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<talendfile:ProcessType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendPigMap="http://www.talend.org/pigmap" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" defaultContext="Default">
+  <context confirmationNeeded="false" name="Default"/>
+  <parameters>
+    <elementParameter field="TEXT" name="JOB_RUN_VM_ARGUMENTS" value=" -Xms256M -Xmx1024M"/>
+    <elementParameter field="CHECK" name="JOB_RUN_VM_ARGUMENTS_OPTION" value="false"/>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_X" value="0"/>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" value="0"/>
+    <elementParameter field="TEXT" name="SCHEMA_OPTIONS" value="none"/>
+    <elementParameter field="TEXT" name="OEM_CUSTOM_ATTRIBUTE" value=""/>
+    <elementParameter field="TEXT" name="HADOOP_APP_PATH" value=""/>
+    <elementParameter field="TEXT" name="JOBID_FOR_OOZIE" value=""/>
+    <elementParameter field="TEXT" name="REPOSITORY_CONNECTION_ID" value=""/>
+    <elementParameter field="TABLE" name="HADOOP_ADVANCED_PROPERTIES"/>
+    <elementParameter field="CHECK" name="IMPLICITCONTEXT_USE_PROJECT_SETTINGS" value="true"/>
+    <elementParameter field="CHECK" name="STATANDLOG_USE_PROJECT_SETTINGS" value="true"/>
+    <elementParameter field="CHECK" name="MULTI_THREAD_EXECATION" value="false"/>
+    <elementParameter field="FILE" name="IMPLICIT_TCONTEXTLOAD_FILE" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="FIELDSEPARATOR" value="&quot;&quot;"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION_IMPLICIT_CONTEXT" value=""/>
+    <elementParameter field="CHECK" name="DISABLE_WARNINGS" value="false"/>
+    <elementParameter field="CHECK" name="DISABLE_INFO" value="false"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="ORACLE_10"/>
+    <routinesParameter id="_q9oecFKZEeSUkL2zKeLO7g" name="Mathematical"/>
+    <routinesParameter id="_q-CuIFKZEeSUkL2zKeLO7g" name="Relational"/>
+    <routinesParameter id="_q-GYgFKZEeSUkL2zKeLO7g" name="TalendDate"/>
+    <routinesParameter id="_q-LRAFKZEeSUkL2zKeLO7g" name="TalendDataGenerator"/>
+    <routinesParameter id="_q-QJgFKZEeSUkL2zKeLO7g" name="DataOperation"/>
+    <routinesParameter id="_q-Ua8FKZEeSUkL2zKeLO7g" name="TalendString"/>
+    <routinesParameter id="_q-ZTcFKZEeSUkL2zKeLO7g" name="StringHandling"/>
+    <routinesParameter id="_q-c90FKZEeSUkL2zKeLO7g" name="Numeric"/>
+  </parameters>
+  <node componentName="tPigLoad" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="288" posY="64">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPigLoad_1"/>
+    <elementParameter field="CHECK" name="END_OF_FLOW" value="false"/>
+    <elementParameter field="RADIO" name="LOCAL" value="false"/>
+    <elementParameter field="RADIO" name="MAPREDUCE" value="true"/>
+    <elementParameter field="CLOSED_LIST" name="DISTRIBUTION" value="CLOUDERA"/>
+    <elementParameter field="CLOSED_LIST" name="PIG_VERSION" value="Cloudera_CDH5"/>
+    <elementParameter field="HADOOP_JARS_DIALOG" name="HADOOP_CUSTOM_JARS" value=""/>
+    <elementParameter field="CHECK" name="USE_YARN" value="false"/>
+    <elementParameter field="CHECK" name="CROSS_PLATFORM_SUBMISSION" value="false"/>
+    <elementParameter field="CLOSED_LIST" name="LOAD" value="PigStorage"/>
+    <elementParameter field="TEXT" name="CUSTOM_LOADER" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="FS_DEFAULT_NAME" value="&quot;hdfs://hc2nn:8020&quot;"/>
+    <elementParameter field="TEXT" name="MAPRED_JOB_TRACKER" value="&quot;localhost:8021&quot;"/>
+    <elementParameter field="TEXT" name="RESOURCE_MANAGER" value="&quot;hc2nn:8032&quot;"/>
+    <elementParameter field="CHECK" name="SET_JOBHISTORY_ADDRESS" value="true"/>
+    <elementParameter field="TEXT" name="JOBHISTORY_ADDRESS" value="&quot;hc2nn:10020&quot;"/>
+    <elementParameter field="CHECK" name="SET_SCHEDULER_ADDRESS" value="true"/>
+    <elementParameter field="TEXT" name="RESOURCEMANAGER_SCHEDULER_ADDRESS" value="&quot;hc2nn:8030&quot;"/>
+    <elementParameter field="CHECK" name="SET_STAGING_DIRECTORY" value="false"/>
+    <elementParameter field="TEXT" name="STAGING_DIRECTORY" value="&quot;/user&quot;"/>
+    <elementParameter field="TEXT" name="THRIFT_SERVER" value="&quot;thrift://localhost:9933&quot;"/>
+    <elementParameter field="CHECK" name="USE_KRB" value="false"/>
+    <elementParameter field="TEXT" name="NAMENODE_PRINCIPAL" value="&quot;nn/_HOST@EXAMPLE.COM&quot;"/>
+    <elementParameter field="TEXT" name="JOBTRACKER_PRINCIPAL" value="&quot;jt/_HOST@EXAMPLE.COM&quot;"/>
+    <elementParameter field="TEXT" name="RESOURCEMANAGER_PRINCIPAL" value="&quot;yarn/_HOST@EXAMPLE.COM&quot;"/>
+    <elementParameter field="TEXT" name="JOBHISTORY_PRINCIPAL" value="&quot;mapred/_HOST@EXAMPLE.COM&quot;"/>
+    <elementParameter field="CHECK" name="USE_KEYTAB" value="false"/>
+    <elementParameter field="TEXT" name="PRINCIPAL" value="&quot;hdfs&quot;"/>
+    <elementParameter field="FILE" name="KEYTAB_PATH" value="&quot;/tmp/hdfs.headless.keytab&quot;"/>
+    <elementParameter field="TEXT" name="USERNAME" value="&quot;hadoop&quot;"/>
+    <elementParameter field="TEXT" name="INPUT_FILENAME" value="&quot;/data/talend/rdbms/rawdata.txt&quot;"/>
+    <elementParameter field="TEXT" name="DATABASE_NAME" value="&quot;default&quot;"/>
+    <elementParameter field="TEXT" name="TABLE_NAME" value="&quot;&quot;"/>
+    <elementParameter field="TABLE" name="PARTITION_FILTER"/>
+    <elementParameter field="TEXT" name="FIELD_SEPARATOR_CHAR" value="&quot;,&quot;"/>
+    <elementParameter field="CHECK" name="COMPRESS" value="false"/>
+    <elementParameter field="CLOSED_LIST" name="COMPRESSION" value="GZIP"/>
+    <elementParameter field="TEXT" name="ZOOKEEPER_QUORUM" value="&quot;localhost&quot;"/>
+    <elementParameter field="TEXT" name="ZOOKEEPER_CLIENT_PORT" value="&quot;2181&quot;"/>
+    <elementParameter field="CHECK" name="SET_ZNODE_PARENT" value="false"/>
+    <elementParameter field="TEXT" name="ZNODE_PARENT" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="HBASE_TABLE" value="&quot;&quot;"/>
+    <elementParameter field="CHECK" name="LOAD_KEY" value="false"/>
+    <elementParameter field="TABLE" name="MAPPING">
+      <elementValue elementRef="SCHEMA_COLUMN" value="year"/>
+      <elementValue elementRef="FAMILY_COLUMN" value=""/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="manufacturer"/>
+      <elementValue elementRef="FAMILY_COLUMN" value=""/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="model"/>
+      <elementValue elementRef="FAMILY_COLUMN" value=""/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="vclass"/>
+      <elementValue elementRef="FAMILY_COLUMN" value=""/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="engine_sz"/>
+      <elementValue elementRef="FAMILY_COLUMN" value=""/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="cylinders"/>
+      <elementValue elementRef="FAMILY_COLUMN" value=""/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="transmission"/>
+      <elementValue elementRef="FAMILY_COLUMN" value=""/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="fuel_type"/>
+      <elementValue elementRef="FAMILY_COLUMN" value=""/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="consumption_city_km"/>
+      <elementValue elementRef="FAMILY_COLUMN" value=""/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="consumption_city_mpg"/>
+      <elementValue elementRef="FAMILY_COLUMN" value=""/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="consumption_hwy_mpg"/>
+      <elementValue elementRef="FAMILY_COLUMN" value=""/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="fuel_lpy"/>
+      <elementValue elementRef="FAMILY_COLUMN" value=""/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="co2"/>
+      <elementValue elementRef="FAMILY_COLUMN" value=""/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="consumption_hwy_km"/>
+      <elementValue elementRef="FAMILY_COLUMN" value=""/>
+    </elementParameter>
+    <elementParameter field="COLUMN_LIST" name="KEYCOLUMN" value="year"/>
+    <elementParameter field="COLUMN_LIST" name="VALUECOLUMN" value="year"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="false"/>
+    <elementParameter field="TABLE" name="HADOOP_ADVANCED_PROPERTIES"/>
+    <elementParameter field="TABLE" name="DRIVER_JAR"/>
+    <elementParameter field="TABLE" name="ADVANCED_PROPERTIES"/>
+    <elementParameter field="CHECK" name="DEFINE_REGISTER_JAR" value="false"/>
+    <elementParameter field="LABEL" name="REGISTER_JAR_NOTE" value="When filling in the Jar path information below, make sure that the JAR files are available on the execution server."/>
+    <elementParameter field="TABLE" name="REGISTER_JAR">
+      <elementValue elementRef="SCHEMA_COLUMN" value="hcatalog"/>
+      <elementValue elementRef="JAR_PATH" value=""/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="hive-exec"/>
+      <elementValue elementRef="JAR_PATH" value=""/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="hive-metastore"/>
+      <elementValue elementRef="JAR_PATH" value=""/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="jdo2-api"/>
+      <elementValue elementRef="JAR_PATH" value=""/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="libfb303"/>
+      <elementValue elementRef="JAR_PATH" value=""/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="libthrift"/>
+      <elementValue elementRef="JAR_PATH" value=""/>
+    </elementParameter>
+    <elementParameter field="TABLE" name="HBASESTORAGE_PARAMETER"/>
+    <elementParameter field="TEXT" name="CLASSPATH_SEPARATOR" value="&quot;:&quot;"/>
+    <elementParameter field="TEXT" name="MAPRED_JOB_MAP_MEMORY_MB" value="&quot;1000&quot;"/>
+    <elementParameter field="TEXT" name="MAPRED_JOB_REDUCE_MEMORY_MB" value="&quot;1000&quot;"/>
+    <elementParameter field="CHECK" name="SET_MEMORY" value="true"/>
+    <elementParameter field="TEXT" name="MAPREDUCE_MAP_MEMORY_MB" value="&quot;1024&quot;"/>
+    <elementParameter field="TEXT" name="MAPREDUCE_REDUCE_MEMORY_MB" value="&quot;1024&quot;"/>
+    <elementParameter field="TEXT" name="YARN_APP_MAPREDUCE_AM_RESOURCE_MB" value="&quot;1024&quot;"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <elementParameter field="CHECK" name="INFORMATION" value="false"/>
+    <elementParameter field="MEMO" name="COMMENT" value=""/>
+    <elementParameter field="CHECK" name="VALIDATION_RULES" value="false"/>
+    <metadata connector="FLOW" name="tPigLoad_1">
+      <column comment="" key="false" name="year" nullable="false" pattern="" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" name="manufacturer" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="model" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="vclass" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="engine_sz" nullable="false" pattern="" sourceType="" type="id_Float" usefulColumn="true"/>
+      <column comment="" key="false" name="cylinders" nullable="false" pattern="" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" name="transmission" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="fuel_type" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="consumption_city_km" nullable="false" pattern="" sourceType="" type="id_Float" usefulColumn="true"/>
+      <column comment="" key="false" name="consumption_city_mpg" nullable="false" pattern="" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" name="consumption_hwy_mpg" nullable="false" pattern="" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" name="fuel_lpy" nullable="false" pattern="" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" name="co2" nullable="false" pattern="" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" name="consumption_hwy_km" nullable="false" pattern="" sourceType="" type="id_Float" usefulColumn="true"/>
+    </metadata>
+    <metadata connector="PIGCOMBINE" name="PIGCOMBINE">
+      <column comment="" key="false" name="year" nullable="false" pattern="" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" name="manufacturer" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="model" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="vclass" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="engine_sz" nullable="false" pattern="" sourceType="" type="id_Float" usefulColumn="true"/>
+      <column comment="" key="false" name="cylinders" nullable="false" pattern="" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" name="transmission" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="fuel_type" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="consumption_city_km" nullable="false" pattern="" sourceType="" type="id_Float" usefulColumn="true"/>
+      <column comment="" key="false" name="consumption_city_mpg" nullable="false" pattern="" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" name="consumption_hwy_mpg" nullable="false" pattern="" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" name="fuel_lpy" nullable="false" pattern="" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" name="co2" nullable="false" pattern="" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" name="consumption_hwy_km" nullable="false" pattern="" sourceType="" type="id_Float" usefulColumn="true"/>
+    </metadata>
+    <metadata connector="REGISTERJAR" name="REGISTERJAR">
+      <column defaultValue="" key="false" length="255" name="hcatalog" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="hive-exec" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="hive-metastore" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="jdo2-api" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="libfb303" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="libthrift" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tPigMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="288" posY="192">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPigMap_1"/>
+    <elementParameter field="EXTERNAL" name="MAP" value=""/>
+    <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
+    <elementParameter field="IMAGE" name="PREVIEW" value=""/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <elementParameter field="CHECK" name="INFORMATION" value="false"/>
+    <elementParameter field="MEMO" name="COMMENT" value=""/>
+    <elementParameter field="CHECK" name="VALIDATION_RULES" value="false"/>
+    <metadata connector="PIGCOMBINE" label="out1" name="out1">
+      <column comment="" key="false" name="year" nullable="false" pattern="" sourceType="" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" name="manufacturer" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="model" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="vclass" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="engine_sz" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="cylinders" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="price" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+    </metadata>
+    <nodeData xsi:type="TalendPigMap:PigMapData">
+      <inputTables name="row1">
+        <nodes name="year" type="id_Integer" outgoingConnections="//@node.1/@nodeData/@connections.2"/>
+        <nodes name="manufacturer" type="id_String" outgoingConnections="//@node.1/@nodeData/@connections.3" lookupOutgoingConnections="//@node.1/@nodeData/@connections.0"/>
+        <nodes name="model" type="id_String" outgoingConnections="//@node.1/@nodeData/@connections.4" lookupOutgoingConnections="//@node.1/@nodeData/@connections.1"/>
+        <nodes name="vclass" type="id_String" outgoingConnections="//@node.1/@nodeData/@connections.5"/>
+        <nodes name="engine_sz" type="id_Float" outgoingConnections="//@node.1/@nodeData/@connections.6"/>
+        <nodes name="cylinders" type="id_Integer" outgoingConnections="//@node.1/@nodeData/@connections.8"/>
+        <nodes name="transmission" type="id_String"/>
+        <nodes name="fuel_type" type="id_String"/>
+        <nodes name="consumption_city_km" type="id_Float"/>
+        <nodes name="consumption_city_mpg" type="id_Integer"/>
+        <nodes name="consumption_hwy_mpg" type="id_Integer"/>
+        <nodes name="fuel_lpy" type="id_Integer"/>
+        <nodes name="co2" type="id_Integer"/>
+        <nodes name="consumption_hwy_km" type="id_Float"/>
+      </inputTables>
+      <inputTables activateCondensedTool="true" name="row3" lookup="true" joinModel="Left Outer Join" joinOptimization="NONE">
+        <nodes name="manufacturuer" expression="row1.manufacturer" type="id_String" lookupIncomingConnections="//@node.1/@nodeData/@connections.0"/>
+        <nodes name="model" expression="row1.model" type="id_String" lookupIncomingConnections="//@node.1/@nodeData/@connections.1"/>
+        <nodes name="price" type="id_Long" outgoingConnections="//@node.1/@nodeData/@connections.7"/>
+      </inputTables>
+      <outputTables name="out1">
+        <nodes name="year" expression="row1.year" type="id_Integer" incomingConnections="//@node.1/@nodeData/@connections.2"/>
+        <nodes name="manufacturer" expression="row1.manufacturer" type="id_String" incomingConnections="//@node.1/@nodeData/@connections.3"/>
+        <nodes name="model" expression="row1.model" type="id_String" incomingConnections="//@node.1/@nodeData/@connections.4"/>
+        <nodes name="vclass" expression="row1.vclass " type="id_String" pattern="" incomingConnections="//@node.1/@nodeData/@connections.5"/>
+        <nodes name="engine_sz" expression="row1.engine_sz " type="id_String" pattern="" incomingConnections="//@node.1/@nodeData/@connections.6"/>
+        <nodes name="cylinders" expression="  row1.cylinders" type="id_String" pattern="" incomingConnections="//@node.1/@nodeData/@connections.8"/>
+        <nodes name="price" expression=" row3.price" type="id_String" pattern="" incomingConnections="//@node.1/@nodeData/@connections.7"/>
+      </outputTables>
+      <connections xsi:type="TalendPigMap:LookupConnection" source="//@node.1/@nodeData/@inputTables.0/@nodes.1" target="//@node.1/@nodeData/@inputTables.1/@nodes.0"/>
+      <connections xsi:type="TalendPigMap:LookupConnection" source="//@node.1/@nodeData/@inputTables.0/@nodes.2" target="//@node.1/@nodeData/@inputTables.1/@nodes.1"/>
+      <connections xsi:type="TalendPigMap:Connection" source="//@node.1/@nodeData/@inputTables.0/@nodes.0" target="//@node.1/@nodeData/@outputTables.0/@nodes.0"/>
+      <connections xsi:type="TalendPigMap:Connection" source="//@node.1/@nodeData/@inputTables.0/@nodes.1" target="//@node.1/@nodeData/@outputTables.0/@nodes.1"/>
+      <connections xsi:type="TalendPigMap:Connection" source="//@node.1/@nodeData/@inputTables.0/@nodes.2" target="//@node.1/@nodeData/@outputTables.0/@nodes.2"/>
+      <connections xsi:type="TalendPigMap:Connection" source="//@node.1/@nodeData/@inputTables.0/@nodes.3" target="//@node.1/@nodeData/@outputTables.0/@nodes.3"/>
+      <connections xsi:type="TalendPigMap:Connection" source="//@node.1/@nodeData/@inputTables.0/@nodes.4" target="//@node.1/@nodeData/@outputTables.0/@nodes.4"/>
+      <connections xsi:type="TalendPigMap:Connection" source="//@node.1/@nodeData/@inputTables.1/@nodes.2" target="//@node.1/@nodeData/@outputTables.0/@nodes.6"/>
+      <connections xsi:type="TalendPigMap:Connection" source="//@node.1/@nodeData/@inputTables.0/@nodes.5" target="//@node.1/@nodeData/@outputTables.0/@nodes.5"/>
+    </nodeData>
+  </node>
+  <node componentName="tPigLoad" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="64" posY="352">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPigLoad_2"/>
+    <elementParameter field="CHECK" name="SUBTREE_START" value="false"/>
+    <elementParameter field="CHECK" name="END_OF_FLOW" value="false"/>
+    <elementParameter field="RADIO" name="LOCAL" value="false"/>
+    <elementParameter field="RADIO" name="MAPREDUCE" value="true"/>
+    <elementParameter field="CLOSED_LIST" name="DISTRIBUTION" value="CLOUDERA"/>
+    <elementParameter field="CLOSED_LIST" name="PIG_VERSION" value="Cloudera_CDH5"/>
+    <elementParameter field="HADOOP_JARS_DIALOG" name="HADOOP_CUSTOM_JARS" value=""/>
+    <elementParameter field="CHECK" name="USE_YARN" value="false"/>
+    <elementParameter field="CHECK" name="CROSS_PLATFORM_SUBMISSION" value="false"/>
+    <elementParameter field="CLOSED_LIST" name="LOAD" value="PigStorage"/>
+    <elementParameter field="TEXT" name="CUSTOM_LOADER" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="FS_DEFAULT_NAME" value="&quot;hdfs://localhost:8020&quot;"/>
+    <elementParameter field="TEXT" name="MAPRED_JOB_TRACKER" value="&quot;localhost:8021&quot;"/>
+    <elementParameter field="TEXT" name="RESOURCE_MANAGER" value="&quot;localhost:8032&quot;"/>
+    <elementParameter field="CHECK" name="SET_JOBHISTORY_ADDRESS" value="false"/>
+    <elementParameter field="TEXT" name="JOBHISTORY_ADDRESS" value="&quot;localhost:10020&quot;"/>
+    <elementParameter field="CHECK" name="SET_SCHEDULER_ADDRESS" value="false"/>
+    <elementParameter field="TEXT" name="RESOURCEMANAGER_SCHEDULER_ADDRESS" value="&quot;localhost:8030&quot;"/>
+    <elementParameter field="CHECK" name="SET_STAGING_DIRECTORY" value="false"/>
+    <elementParameter field="TEXT" name="STAGING_DIRECTORY" value="&quot;/user&quot;"/>
+    <elementParameter field="TEXT" name="THRIFT_SERVER" value="&quot;thrift://localhost:9933&quot;"/>
+    <elementParameter field="CHECK" name="USE_KRB" value="false"/>
+    <elementParameter field="TEXT" name="NAMENODE_PRINCIPAL" value="&quot;nn/_HOST@EXAMPLE.COM&quot;"/>
+    <elementParameter field="TEXT" name="JOBTRACKER_PRINCIPAL" value="&quot;jt/_HOST@EXAMPLE.COM&quot;"/>
+    <elementParameter field="TEXT" name="RESOURCEMANAGER_PRINCIPAL" value="&quot;yarn/_HOST@EXAMPLE.COM&quot;"/>
+    <elementParameter field="TEXT" name="JOBHISTORY_PRINCIPAL" value="&quot;mapred/_HOST@EXAMPLE.COM&quot;"/>
+    <elementParameter field="CHECK" name="USE_KEYTAB" value="false"/>
+    <elementParameter field="TEXT" name="PRINCIPAL" value="&quot;hdfs&quot;"/>
+    <elementParameter field="FILE" name="KEYTAB_PATH" value="&quot;/tmp/hdfs.headless.keytab&quot;"/>
+    <elementParameter field="TEXT" name="USERNAME" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="INPUT_FILENAME" value="&quot;/data/talend/rdbms/rawprices.txt&quot;"/>
+    <elementParameter field="TEXT" name="DATABASE_NAME" value="&quot;default&quot;"/>
+    <elementParameter field="TEXT" name="TABLE_NAME" value="&quot;&quot;"/>
+    <elementParameter field="TABLE" name="PARTITION_FILTER"/>
+    <elementParameter field="TEXT" name="FIELD_SEPARATOR_CHAR" value="&quot;,&quot;"/>
+    <elementParameter field="CHECK" name="COMPRESS" value="false"/>
+    <elementParameter field="CLOSED_LIST" name="COMPRESSION" value="GZIP"/>
+    <elementParameter field="TEXT" name="ZOOKEEPER_QUORUM" value="&quot;localhost&quot;"/>
+    <elementParameter field="TEXT" name="ZOOKEEPER_CLIENT_PORT" value="&quot;2181&quot;"/>
+    <elementParameter field="CHECK" name="SET_ZNODE_PARENT" value="false"/>
+    <elementParameter field="TEXT" name="ZNODE_PARENT" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="HBASE_TABLE" value="&quot;&quot;"/>
+    <elementParameter field="CHECK" name="LOAD_KEY" value="false"/>
+    <elementParameter field="TABLE" name="MAPPING">
+      <elementValue elementRef="SCHEMA_COLUMN" value="manufacturuer"/>
+      <elementValue elementRef="FAMILY_COLUMN" value=""/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="model"/>
+      <elementValue elementRef="FAMILY_COLUMN" value=""/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="price"/>
+      <elementValue elementRef="FAMILY_COLUMN" value=""/>
+    </elementParameter>
+    <elementParameter field="COLUMN_LIST" name="KEYCOLUMN" value="manufacturuer"/>
+    <elementParameter field="COLUMN_LIST" name="VALUECOLUMN" value="manufacturuer"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="false"/>
+    <elementParameter field="TABLE" name="HADOOP_ADVANCED_PROPERTIES"/>
+    <elementParameter field="TABLE" name="DRIVER_JAR"/>
+    <elementParameter field="TABLE" name="ADVANCED_PROPERTIES"/>
+    <elementParameter field="CHECK" name="DEFINE_REGISTER_JAR" value="false"/>
+    <elementParameter field="LABEL" name="REGISTER_JAR_NOTE" value="When filling in the Jar path information below, make sure that the JAR files are available on the execution server."/>
+    <elementParameter field="TABLE" name="REGISTER_JAR">
+      <elementValue elementRef="SCHEMA_COLUMN" value="hcatalog"/>
+      <elementValue elementRef="JAR_PATH" value=""/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="hive-exec"/>
+      <elementValue elementRef="JAR_PATH" value=""/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="hive-metastore"/>
+      <elementValue elementRef="JAR_PATH" value=""/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="jdo2-api"/>
+      <elementValue elementRef="JAR_PATH" value=""/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="libfb303"/>
+      <elementValue elementRef="JAR_PATH" value=""/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="libthrift"/>
+      <elementValue elementRef="JAR_PATH" value=""/>
+    </elementParameter>
+    <elementParameter field="TABLE" name="HBASESTORAGE_PARAMETER"/>
+    <elementParameter field="TEXT" name="CLASSPATH_SEPARATOR" value="&quot;:&quot;"/>
+    <elementParameter field="TEXT" name="MAPRED_JOB_MAP_MEMORY_MB" value="&quot;1000&quot;"/>
+    <elementParameter field="TEXT" name="MAPRED_JOB_REDUCE_MEMORY_MB" value="&quot;1000&quot;"/>
+    <elementParameter field="CHECK" name="SET_MEMORY" value="false"/>
+    <elementParameter field="TEXT" name="MAPREDUCE_MAP_MEMORY_MB" value="&quot;1024&quot;"/>
+    <elementParameter field="TEXT" name="MAPREDUCE_REDUCE_MEMORY_MB" value="&quot;1024&quot;"/>
+    <elementParameter field="TEXT" name="YARN_APP_MAPREDUCE_AM_RESOURCE_MB" value="&quot;1024&quot;"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <elementParameter field="CHECK" name="INFORMATION" value="false"/>
+    <elementParameter field="MEMO" name="COMMENT" value=""/>
+    <elementParameter field="CHECK" name="VALIDATION_RULES" value="false"/>
+    <metadata connector="FLOW" name="tPigLoad_2">
+      <column comment="" key="false" name="manufacturuer" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="model" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="price" nullable="false" pattern="" sourceType="" type="id_Long" usefulColumn="true"/>
+    </metadata>
+    <metadata connector="PIGCOMBINE" name="PIGCOMBINE">
+      <column comment="" key="false" name="manufacturuer" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="model" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="price" nullable="false" pattern="" sourceType="" type="id_Long" usefulColumn="true"/>
+    </metadata>
+    <metadata connector="REGISTERJAR" name="REGISTERJAR">
+      <column defaultValue="" key="false" length="255" name="hcatalog" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="hive-exec" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="hive-metastore" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="jdo2-api" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="libfb303" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="libthrift" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tPigFilterColumns" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="288" posY="288">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPigFilterColumns_1"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <elementParameter field="CHECK" name="INFORMATION" value="false"/>
+    <elementParameter field="MEMO" name="COMMENT" value=""/>
+    <elementParameter field="CHECK" name="VALIDATION_RULES" value="false"/>
+    <metadata connector="FLOW" name="tPigFilterColumns_1">
+      <column comment="" key="false" name="manufacturer" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="model" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="price" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+    </metadata>
+    <metadata connector="PIGCOMBINE" name="PIGCOMBINE">
+      <column comment="" key="false" name="manufacturer" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="model" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="price" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tPigSort" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="512" posY="288">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPigSort_1"/>
+    <elementParameter field="TABLE" name="SORT_KEY">
+      <elementValue elementRef="INPUT_COLUMN" value="manufacturer"/>
+      <elementValue elementRef="ORDER" value="ASC"/>
+      <elementValue elementRef="INPUT_COLUMN" value="model"/>
+      <elementValue elementRef="ORDER" value="ASC"/>
+      <elementValue elementRef="INPUT_COLUMN" value="price"/>
+      <elementValue elementRef="ORDER" value="ASC"/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="INCREASE_PARALLELISM" value="false"/>
+    <elementParameter field="TEXT" name="REDUCE_NUMBER" value="2"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <elementParameter field="CHECK" name="INFORMATION" value="false"/>
+    <elementParameter field="MEMO" name="COMMENT" value=""/>
+    <elementParameter field="CHECK" name="VALIDATION_RULES" value="false"/>
+    <metadata connector="FLOW" name="tPigSort_1">
+      <column comment="" key="false" name="manufacturer" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="model" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="price" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+    </metadata>
+    <metadata connector="PIGCOMBINE" name="PIGCOMBINE">
+      <column comment="" key="false" name="manufacturer" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="model" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="price" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tPigStoreResult" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="512" posY="64">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPigStoreResult_1"/>
+    <elementParameter field="CHECK" name="END_OF_FLOW" value="true"/>
+    <elementParameter field="TEXT" name="OUTPUT_FILENAME" value="&quot;/data/talend/result/&quot;"/>
+    <elementParameter field="CHECK" name="RM_OUTPUT" value="false"/>
+    <elementParameter field="CLOSED_LIST" name="STORE" value="PigStorage"/>
+    <elementParameter field="TEXT" name="CUSTOM_STORER" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="FIELD_SEPARATOR_CHAR" value="&quot;|&quot;"/>
+    <elementParameter field="TEXT" name="THRIFT_SERVER" value="&quot;thrift://localhost:9083&quot;"/>
+    <elementParameter field="TEXT" name="DATABASE_NAME" value="&quot;default&quot;"/>
+    <elementParameter field="TEXT" name="TABLE_NAME" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="PARTITION_KEYVALUE" value="&quot;&quot;"/>
+    <elementParameter field="CLOSED_LIST" name="DISTRIBUTION" value="HORTONWORKS"/>
+    <elementParameter field="CLOSED_LIST" name="HBASE_VERSION" value="HDP_1_0"/>
+    <elementParameter field="TABLE" name="CUSTOM_JARS"/>
+    <elementParameter field="TEXT" name="ZOOKEEPER_QUORUM" value="&quot;localhost&quot;"/>
+    <elementParameter field="TEXT" name="ZOOKEEPER_CLIENT_PORT" value="&quot;2181&quot;"/>
+    <elementParameter field="CHECK" name="SET_ZNODE_PARENT" value="false"/>
+    <elementParameter field="TEXT" name="ZNODE_PARENT" value="&quot;&quot;"/>
+    <elementParameter field="TEXT" name="HBASE_TABLE" value="&quot;&quot;"/>
+    <elementParameter field="COLUMN_LIST" name="ROWKEY_COLUMN" value="manufacturer"/>
+    <elementParameter field="CHECK" name="CONTAIN_ROW_KEY_COLUMN_IN_HBASE_COLUMN" value="false"/>
+    <elementParameter field="TABLE" name="MAPPING">
+      <elementValue elementRef="SCHEMA_COLUMN" value="manufacturer"/>
+      <elementValue elementRef="FAMILY_COLUMN" value=""/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="model"/>
+      <elementValue elementRef="FAMILY_COLUMN" value=""/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="price"/>
+      <elementValue elementRef="FAMILY_COLUMN" value=""/>
+    </elementParameter>
+    <elementParameter field="COLUMN_LIST" name="KEYCOLUMN" value="manufacturer"/>
+    <elementParameter field="COLUMN_LIST" name="VALUECOLUMN" value="manufacturer"/>
+    <elementParameter field="TABLE" name="DRIVER_JAR"/>
+    <elementParameter field="CHECK" name="DEFINE_REGISTER_JAR" value="false"/>
+    <elementParameter field="LABEL" name="REGISTER_JAR_NOTE" value="When filling in the Jar path information below, make sure that the JAR files are available on the execution server."/>
+    <elementParameter field="TABLE" name="REGISTER_JAR">
+      <elementValue elementRef="SCHEMA_COLUMN" value="datanucleus-core"/>
+      <elementValue elementRef="JAR_PATH" value=""/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="datanucleus-rdbms"/>
+      <elementValue elementRef="JAR_PATH" value=""/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="hcatalog"/>
+      <elementValue elementRef="JAR_PATH" value=""/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="hive-exec"/>
+      <elementValue elementRef="JAR_PATH" value=""/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="hive-metastore"/>
+      <elementValue elementRef="JAR_PATH" value=""/>
+    </elementParameter>
+    <elementParameter field="TABLE" name="HBASESTORAGE_PARAMETER"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <elementParameter field="CHECK" name="INFORMATION" value="false"/>
+    <elementParameter field="MEMO" name="COMMENT" value=""/>
+    <elementParameter field="CHECK" name="VALIDATION_RULES" value="false"/>
+    <metadata connector="FLOW" name="tPigStoreResult_1">
+      <column comment="" key="false" name="manufacturer" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="model" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" name="price" nullable="false" pattern="" sourceType="" type="id_String" usefulColumn="true"/>
+    </metadata>
+    <metadata connector="REGISTERJAR" name="REGISTERJAR">
+      <column defaultValue="" key="false" length="255" name="datanucleus-core" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="datanucleus-rdbms" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="hcatalog" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="hive-exec" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="hive-metastore" nullable="true" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tHDFSConnection" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="96" posY="64">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tHDFSConnection_1"/>
+    <elementParameter field="CHECK" name="START" value="true"/>
+    <elementParameter field="CLOSED_LIST" name="DISTRIBUTION" value="CLOUDERA"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="Cloudera_CDH5"/>
+    <elementParameter field="HADOOP_JARS_DIALOG" name="HADOOP_CUSTOM_JARS" value=""/>
+    <elementParameter field="CLOSED_LIST" name="AUTHENTICATION_MODE" value="USERNAME"/>
+    <elementParameter field="TEXT" name="FS_DEFAULT_NAME" value="&quot;hdfs://hc2nn:8020/&quot;"/>
+    <elementParameter field="CHECK" name="USE_KRB" value="false"/>
+    <elementParameter field="TEXT" name="NAMENODE_PRINCIPAL" value="&quot;nn/_HOST@EXAMPLE.COM&quot;"/>
+    <elementParameter field="CHECK" name="USE_KEYTAB" value="false"/>
+    <elementParameter field="TEXT" name="PRINCIPAL" value="&quot;hdfs&quot;"/>
+    <elementParameter field="FILE" name="KEYTAB_PATH" value="&quot;/tmp/hdfs.headless.keytab&quot;"/>
+    <elementParameter field="TEXT" name="USERNAME" value="&quot;hadoop&quot;"/>
+    <elementParameter field="TEXT" name="GROUP" value="&quot;supergroup&quot;"/>
+    <elementParameter field="TABLE" name="HADOOP_ADVANCED_PROPERTIES"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <elementParameter field="CHECK" name="INFORMATION" value="false"/>
+    <elementParameter field="MEMO" name="COMMENT" value=""/>
+    <elementParameter field="CHECK" name="VALIDATION_RULES" value="false"/>
+  </node>
+  <node componentName="tHDFSDelete" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="96" posY="192">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tHDFSDelete_1"/>
+    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tHDFSConnection_1"/>
+    <elementParameter field="CLOSED_LIST" name="DISTRIBUTION" value="HORTONWORKS"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="HDP_1_0"/>
+    <elementParameter field="HADOOP_JARS_DIALOG" name="HADOOP_CUSTOM_JARS" value=""/>
+    <elementParameter field="CLOSED_LIST" name="AUTHENTICATION_MODE" value="USERNAME"/>
+    <elementParameter field="TEXT" name="FS_DEFAULT_NAME" value="&quot;hdfs://localhost:9000/&quot;"/>
+    <elementParameter field="CHECK" name="USE_KRB" value="false"/>
+    <elementParameter field="TEXT" name="NAMENODE_PRINCIPAL" value="&quot;nn/_HOST@EXAMPLE.COM&quot;"/>
+    <elementParameter field="CHECK" name="USE_KEYTAB" value="false"/>
+    <elementParameter field="TEXT" name="PRINCIPAL" value="&quot;hdfs&quot;"/>
+    <elementParameter field="FILE" name="KEYTAB_PATH" value="&quot;/tmp/hdfs.headless.keytab&quot;"/>
+    <elementParameter field="TEXT" name="USERNAME" value="&quot;anonymous&quot;"/>
+    <elementParameter field="TEXT" name="GROUP" value="&quot;supergroup&quot;"/>
+    <elementParameter field="BOTH_HADOOP" name="PATH" value="&quot;/data/talend/result&quot;"/>
+    <elementParameter field="TABLE" name="HADOOP_ADVANCED_PROPERTIES"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <elementParameter field="CHECK" name="INFORMATION" value="false"/>
+    <elementParameter field="MEMO" name="COMMENT" value=""/>
+    <elementParameter field="CHECK" name="VALIDATION_RULES" value="false"/>
+  </node>
+  <connection connectorName="PIGCOMBINE" label="row1" lineStyle="0" metaname="PIGCOMBINE" offsetLabelX="0" offsetLabelY="0" source="tPigLoad_1" target="tPigMap_1">
+    <elementParameter field="CHECK" name="TRACES_CONNECTION_ENABLE" value="true"/>
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER">
+      <elementValue elementRef="TRACE_COLUMN" value="year"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="manufacturer"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="model"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="vclass"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="engine_sz"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="cylinders"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="transmission"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="fuel_type"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="consumption_city_km"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="consumption_city_mpg"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="consumption_hwy_mpg"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="fuel_lpy"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="co2"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="consumption_hwy_km"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="CHECK" name="USEROWLABEL" value="true"/>
+    <elementParameter field="TEXT" name="METTERLABEL" value="&quot;MyLabel&quot;"/>
+    <elementParameter field="CLOSED_LIST" name="ABSOLUTE" value="Absolute"/>
+    <elementParameter field="CONNECTION_LIST" name="CONNECTIONS" value=""/>
+    <elementParameter field="TABLE" name="THRESHLODS"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="true"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row1"/>
+  </connection>
+  <connection connectorName="PIGCOMBINE" label="out1" lineStyle="0" metaname="out1" offsetLabelX="0" offsetLabelY="0" source="tPigMap_1" target="tPigFilterColumns_1">
+    <elementParameter field="CHECK" name="TRACES_CONNECTION_ENABLE" value="true"/>
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER">
+      <elementValue elementRef="TRACE_COLUMN" value="year"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="manufacturer"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="model"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="vclass"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="engine_sz"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="cylinders"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="price"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="CHECK" name="USEROWLABEL" value="true"/>
+    <elementParameter field="TEXT" name="METTERLABEL" value="&quot;MyLabel&quot;"/>
+    <elementParameter field="CLOSED_LIST" name="ABSOLUTE" value="Absolute"/>
+    <elementParameter field="CONNECTION_LIST" name="CONNECTIONS" value=""/>
+    <elementParameter field="TABLE" name="THRESHLODS"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="true"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="out1"/>
+  </connection>
+  <connection connectorName="PIGCOMBINE" label="row3" lineStyle="8" metaname="PIGCOMBINE" offsetLabelX="0" offsetLabelY="0" source="tPigLoad_2" target="tPigMap_1">
+    <elementParameter field="CHECK" name="TRACES_CONNECTION_ENABLE" value="true"/>
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER"/>
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="CHECK" name="USEROWLABEL" value="true"/>
+    <elementParameter field="TEXT" name="METTERLABEL" value="&quot;MyLabel&quot;"/>
+    <elementParameter field="CLOSED_LIST" name="ABSOLUTE" value="Absolute"/>
+    <elementParameter field="CONNECTION_LIST" name="CONNECTIONS" value=""/>
+    <elementParameter field="TABLE" name="THRESHLODS"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="true"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row3"/>
+  </connection>
+  <connection connectorName="PIGCOMBINE" label="row2" lineStyle="0" metaname="PIGCOMBINE" offsetLabelX="0" offsetLabelY="0" source="tPigFilterColumns_1" target="tPigSort_1">
+    <elementParameter field="CHECK" name="TRACES_CONNECTION_ENABLE" value="true"/>
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER">
+      <elementValue elementRef="TRACE_COLUMN" value="manufacturer"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="model"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="price"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="CHECK" name="USEROWLABEL" value="true"/>
+    <elementParameter field="TEXT" name="METTERLABEL" value="&quot;MyLabel&quot;"/>
+    <elementParameter field="CLOSED_LIST" name="ABSOLUTE" value="Absolute"/>
+    <elementParameter field="CONNECTION_LIST" name="CONNECTIONS" value=""/>
+    <elementParameter field="TABLE" name="THRESHLODS"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="true"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row2"/>
+  </connection>
+  <connection connectorName="PIGCOMBINE" label="row4" lineStyle="0" metaname="PIGCOMBINE" offsetLabelX="0" offsetLabelY="0" source="tPigSort_1" target="tPigStoreResult_1">
+    <elementParameter field="CHECK" name="TRACES_CONNECTION_ENABLE" value="true"/>
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER">
+      <elementValue elementRef="TRACE_COLUMN" value="manufacturer"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="model"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="price"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="CHECK" name="USEROWLABEL" value="true"/>
+    <elementParameter field="TEXT" name="METTERLABEL" value="&quot;MyLabel&quot;"/>
+    <elementParameter field="CLOSED_LIST" name="ABSOLUTE" value="Absolute"/>
+    <elementParameter field="CONNECTION_LIST" name="CONNECTIONS" value=""/>
+    <elementParameter field="TABLE" name="THRESHLODS"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="true"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="row4"/>
+  </connection>
+  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tHDFSConnection_1" offsetLabelX="0" offsetLabelY="0" source="tHDFSConnection_1" target="tHDFSDelete_1">
+    <elementParameter field="CHECK" name="ACTIVATE" value="true"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk1"/>
+  </connection>
+  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tHDFSDelete_1" offsetLabelX="0" offsetLabelY="0" source="tHDFSDelete_1" target="tPigLoad_1">
+    <elementParameter field="CHECK" name="ACTIVATE" value="true"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk2"/>
+  </connection>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPigLoad_1"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="160;190;240"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="220;220;250"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tHDFSConnection_1"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="160;190;240"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="220;220;250"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tHDFSDelete_1"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="160;190;240"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="220;220;250"/>
+  </subjob>
+</talendfile:ProcessType>

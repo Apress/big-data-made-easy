@@ -1,0 +1,95 @@
+<workflow-app name="FuelWorkFlow" xmlns="uri:oozie:workflow:0.1">
+
+  <start to="pig-fork"/>
+
+  <fork name="pig-fork">
+    <path start="pig-manufacturer"/>
+    <path start="pig-model"/>
+  </fork>
+
+  <action name="pig-manufacturer">
+    <pig>
+      <job-tracker>${jobTracker}</job-tracker>
+      <name-node>${nameNode}</name-node>
+      <prepare> 
+        <delete path="${hdfsEntityData}/manufacturer"/>
+      </prepare>
+      <configuration>
+        <property>
+          <name>mapred.job.queue.name</name>
+          <value>${queueName}</value>
+        </property>
+      </configuration>
+      <script>manufacturer.pig</script>
+    </pig>
+    <ok to="pig-join"/>
+    <error to="fail"/>
+  </action>
+
+  <action name="pig-model">
+    <pig>
+      <job-tracker>${jobTracker}</job-tracker>
+      <name-node>${nameNode}</name-node>
+      <prepare> 
+        <delete path="${hdfsEntityData}/model"/>
+      </prepare>
+      <configuration>
+        <property>
+          <name>mapred.job.queue.name</name>
+          <value>${queueName}</value>
+        </property>
+      </configuration>
+      <script>model.pig</script>
+    </pig>
+    <ok to="pig-join"/>
+    <error to="fail"/>
+  </action>
+
+  <join name="pig-join" to="hive-fork"/>
+
+  <fork name="hive-fork">
+    <path start="hive-manufacturer"/>
+    <path start="hive-model"/>
+  </fork>
+
+  <action name="hive-manufacturer">
+    <hive xmlns="uri:oozie:hive-action:0.2">
+      <job-tracker>${jobTracker}</job-tracker>
+      <name-node>${nameNode}</name-node>
+      <configuration>
+        <property>
+          <name>mapred.job.queue.name</name>
+          <value>${queueName}</value>
+        </property>
+      </configuration>
+      <script>model.sql</script>
+    </hive>
+    <ok to="hive-join"/>
+    <error to="fail"/>
+  </action>
+
+  <action name="hive-model">
+    <hive xmlns="uri:oozie:hive-action:0.2">
+      <job-tracker>${jobTracker}</job-tracker>
+      <name-node>${nameNode}</name-node>
+      <configuration>
+        <property>
+          <name>mapred.job.queue.name</name>
+          <value>${queueName}</value>
+        </property>
+      </configuration>
+      <script>model.sql</script>
+    </hive>
+    <ok to="hive-join"/>
+    <error to="fail"/>
+  </action>
+
+  <join name="hive-join" to="end"/>
+
+  <kill name="fail">
+    <message>Workflow died, error message[${wf:errorMessage(wf:lastErrorNode())}]</message>
+  </kill>
+
+  <end name="end"/>
+
+</workflow-app>

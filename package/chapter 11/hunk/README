@@ -1,0 +1,6 @@
+
+For details on configuration files, see $SPLUNK_HOME/etc/system/README/ directory
+for specifications and examples.
+
+These files were taken from the Splunk Hunk install on the CentOS 6.2 Linux 
+server  hc2nn under  /usr/local/hunk/etc/system/local

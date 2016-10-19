@@ -1,0 +1,66 @@
+
+---------------------------------------------------------------------------
+-- start spark shell
+---------------------------------------------------------------------------
+
+spark-shell --master spark://hc2nn.semtech-solutions.co.nz:7077
+
+---------------------------------------------------------------------------
+-- scala script
+---------------------------------------------------------------------------
+
+val myFile = sc.textFile("/tmp/scala.csv")
+
+myFile.count()
+
+myFile.filter(line => line.contains("ACURA")).count()
+
+---------------------------------------------------------------------------
+-- scala submit
+---------------------------------------------------------------------------
+
+spark-submit \
+  --class org.apache.spark.examples.SparkPi \
+  --master spark://hc2nn.semtech-solutions.co.nz:7077  \
+  --executor-memory 700M \
+  --total-executor-cores 10 \
+  /usr/lib/spark/examples/lib/spark-examples_2.10-1.0.0-cdh5.1.2.jar \
+  10000
+
+---------------------------------------------------------------------------
+-- scala SQL
+---------------------------------------------------------------------------
+
+val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+
+import sqlContext._
+
+case class Vehicle(year: Int,manufacturer: String, model: String, vclass: String, engine: Double, cylinders: Int, fuel: String, consumption: String, clkm: Double, hlkm: Double, cmpg: Int, hmpg: Int, co2lyr: Int, co2gkm: Int)
+
+val vehicle = sc.textFile("/tmp/scala.csv").map(_.split(",")).map(p => Vehicle( 
+p(0).trim.toInt, 
+p(1), 
+p(2), 
+p(3), 
+p(4).trim.toDouble, 
+p(5).trim.toInt, 
+p(6), 
+p(7), 
+p(8).trim.toDouble, 
+p(9).trim.toDouble, 
+p(10).trim.toInt, 
+p(11).trim.toInt, 
+p(12).trim.toInt, 
+p(13).trim.toInt 
+))
+
+
+vehicle.registerAsTable("vehicle")
+
+val  aston = sql( "SELECT  year, manufacturer, model, vclass, engine  FROM  vehicle   WHERE  manufacturer = 'ASTON MARTIN' ")
+
+aston.map(  t => "year: " + t(0) + " manufacturer " + t(1) + " model " + t(2) + " class " + t(3)  + " engine " + t(4)  ).collect().foreach(println)
+
+
+
+

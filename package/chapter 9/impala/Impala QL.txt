@@ -1,0 +1,138 @@
+
+--------------------------------------------------
+-- create database and use it
+--------------------------------------------------
+
+CREATE DATABASE fuel ; 
+
+USE fuel ; 
+
+--------------------------------------------------
+-- external tables
+--------------------------------------------------
+
+CREATE EXTERNAL TABLE fuel.consumption 
+(
+  myear STRING,
+  manufacturer STRING,
+  model STRING,
+  fclass STRING,
+  enginesz STRING,
+  cylinders STRING,
+  transmission STRING,
+  fuel STRING,
+  consumption1 STRING,
+  consumption2 STRING,
+  consumption3 STRING,
+  consumption4 STRING,
+  avefuel STRING,
+  co2 STRING
+)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+LOCATION '/user/hue2/fuel_consumption/';
+
+
+--------------------------------------------------
+-- remove a table 
+--------------------------------------------------
+
+DROP TABLE fuel.consumption ; 
+
+--------------------------------------------------
+-- create empty table 
+--------------------------------------------------
+
+CREATE TABLE fuel.consumption2
+(
+  myear STRING,
+  manufacturer STRING,
+  model STRING,
+  fclass STRING,
+  enginesz STRING,
+  cylinders STRING,
+  transmission STRING,
+  fuel STRING,
+  consumption1 STRING,
+  consumption2 STRING,
+  consumption3 STRING,
+  consumption4 STRING,
+  avefuel STRING,
+  co2 STRING
+);
+
+
+--------------------------------------------------
+-- list tables and show content 
+--------------------------------------------------
+
+SHOW TABLES ; 
+
+DESCRIBE fuel.consumption;
+
+--------------------------------------------------
+-- select statements 
+--------------------------------------------------
+
+SELECT * FROM fuel.customer ; 
+
+SELECT * from fuel.consumption ;
+
+SELECT  myear, manufacturer  from fuel.consumption ;
+
+--------------------------------------------------
+-- where clauses
+--------------------------------------------------
+
+SELECT * from fuel.consumption WHERE manufacturer = 'ACURA' ;
+
+SELECT * from fuel.consumption WHERE myear = '1995' AND manufacturer = 'AUDI'   ;
+
+SELECT * from fuel.consumption WHERE myear = '1995' OR manufacturer = 'AUDI'   ;
+
+
+--------------------------------------------------
+-- sub queries
+--------------------------------------------------
+
+SELECT rd.* FROM 
+(
+    SELECT 
+      myear,manufacturer,model,enginesz,cylinders
+    FROM
+     fuel.consumption
+
+)  rd ;
+
+
+SELECT 
+  fl.*
+FROM
+  fuel.consumption  fl
+WHERE
+  fl.enginesz > ( SELECT AVG(st.enginesz) FROM  fuel.consumption  st  ) 
+
+--------------------------------------------------
+-- table joins
+--------------------------------------------------
+
+SELECT
+  rd1.*
+FROM 
+  fuel.consumption    rd1,
+  fuel.consumption3  rd2
+WHERE
+  rd1.myear =  rd2.myear AND
+  rd1. manufacturer =  rd2. manufacturer AND
+  rd1. model =  rd2. model 
+
+--------------------------------------------------
+-- inserts
+--------------------------------------------------
+
+INSERT INTO fuel.consumption2 VALUES  ('1995','ACURA','INTEGRA','SUBCOMPACT','1.8','4','A4','X','10.2','7','28','40','1760','202');
+
+INSERT INTO TABLE fuel.consumption2 SELECT * FROM   fuel.consumption3
+
+
+
+

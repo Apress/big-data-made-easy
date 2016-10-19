@@ -1,0 +1,10 @@
+
+import
+--connect
+jdbc:mysql://hc1nn/sqoop
+--username
+sqoop
+--password
+FirmWare1234
+--table
+rawdata
